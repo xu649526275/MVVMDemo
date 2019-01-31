@@ -1,0 +1,143 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    dataBinding {
+        enabled = true
+    }
+    //处理所有报META-INF/*'的错误
+    packagingOptions {
+        pickFirst 'META-INF/*'
+    }
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+
+dependencies {
+    //support  exclude->指的是不包括，防止jar包冲突，如：v4,v7,recyclerview都含有annotations,
+    // 我需要过滤掉它里面的这个
+    api(rootProject.ext.dependencies["support-v4"]) {
+        exclude module: 'support-annotations'
+    }
+    api(rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    api rootProject.ext.dependencies["cardview-v7"]
+    api rootProject.ext.dependencies["design"]
+    api(rootProject.ext.dependencies["recyclerview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    api rootProject.ext.dependencies["annotations"]
+    api rootProject.ext.dependencies["constraint"]
+
+
+
+    //rx
+    api rootProject.ext.dependencies["rxjava"]
+    api(rootProject.ext.dependencies["rxandroid"]) {
+        exclude module: 'rxjava'
+    }
+
+    api rootProject.ext.dependencies['rxerrorhandler2']
+
+    //network
+    api(rootProject.ext.dependencies["retrofit"]) {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
+    api(rootProject.ext.dependencies["retrofit-converter-gson"]) {
+        exclude module: 'gson'
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'retrofit'
+    }
+    api(rootProject.ext.dependencies["retrofit-adapter-rxjava"]) {
+        exclude module: 'rxjava'
+        exclude module: 'okhttp'
+        exclude module: 'retrofit'
+        exclude module: 'okio'
+    }
+    api rootProject.ext.dependencies["okhttp3"]
+    api rootProject.ext.dependencies["okhttp-okio"]
+    api rootProject.ext.dependencies["okhttp-logging"]
+    api rootProject.ext.dependencies["glide"]
+    annotationProcessor(rootProject.ext.dependencies["glide-compiler"]) {
+        exclude module: 'jsr305'
+    }
+
+    //dagger
+//    api rootProject.ext.dependencies["dagger2"]
+//    api rootProject.ext.dependencies["dagger2-android"]
+//    api rootProject.ext.dependencies["dagger2-android-support"]
+//    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+//    annotationProcessor rootProject.ext.dependencies["dagger2-android-processor"]
+
+    //tools
+    compileOnly rootProject.ext.dependencies["javax.annotation"]
+
+    compileOnly rootProject.ext.dependencies["eventbus"]
+    api rootProject.ext.dependencies["gson"]
+
+    //test
+    api rootProject.ext.dependencies["timber"]
+    api rootProject.ext.dependencies["multidex"]
+
+
+    api "android.arch.lifecycle:extensions:1.1.1"
+
+    api 'com.billy.android:cc:2.1.1'
+
+
+    api 'com.facebook.fresco:fresco:1.10.0'
+    api 'com.facebook.fresco:webpsupport:1.10.0'
+    api 'com.facebook.fresco:imagepipeline-okhttp3:1.10.0'
+
+    api 'cn.bingoogolapple:bga-banner:2.2.5@aar'
+//    implementation 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
+//    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
+
+//    api(rootProject.ext.dependencies["rxcache2"]) {
+//        exclude module: 'rxjava'
+//        exclude module: 'dagger'
+//        exclude module: 'api'
+//    }
+//    implementation(rootProject.ext.dependencies["rxcache-jolyglot-gson"]) {
+//        exclude module: 'gson'
+//    }
+//    api(rootProject.ext.dependencies["rxlifecycle2"]) {
+//        exclude module: 'rxjava'
+//        exclude module: 'jsr305'
+//    }
+//    api(rootProject.ext.dependencies["rxlifecycle2-android"]) {
+//        exclude module: 'support-annotations'
+//        exclude module: 'rxjava'
+//        exclude module: 'rxandroid'
+//        exclude module: 'rxlifecycle'
+//    }
+//    api(rootProject.ext.dependencies["rxpermissions2"]) {
+//        exclude module: 'rxjava'
+//        exclude module: 'support-annotations'
+//    }
+
+}

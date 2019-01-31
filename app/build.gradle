@@ -1,0 +1,69 @@
+ext.mainApp = true
+apply from: rootProject.file('cc-settings-app.gradle')
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    defaultConfig {
+        applicationId "com.mvvm"
+        // dex突破65535的限制
+        multiDexEnabled true
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    //处理所有报META-INF/*'的错误
+    packagingOptions {
+        pickFirst 'META-INF/*'
+    }
+
+    lintOptions {
+        //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉
+        checkReleaseBuilds false
+        abortOnError false
+        //关闭对ResourceType检查
+        disable "ResourceType"
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies{
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(":arms")
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    addComponent 'wanandroid'
+    //底部tabBar
+    implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0'
+}
+

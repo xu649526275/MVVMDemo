@@ -1,0 +1,68 @@
+<!--
+  ~  Copyright ® 2017.   All right reserved.
+  ~
+  ~  Last modified 16-10-20 上午9:52
+  ~
+  ~
+  -->
+
+<resources>
+
+
+    <dimen name="def_height">50dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="tag_corner_radius">20.0dip</dimen>
+    <dimen name="tag_horizontal_spacing">8.0dip</dimen>
+    <dimen name="tag_vertical_spacing">6.0dip</dimen>
+    <dimen name="common_margin">14.0dip</dimen>
+    <dimen name="common_margin_10">14.0dip</dimen>
+    <dimen name="page_margin">25dp</dimen>
+
+    <dimen name="dp_066">0.66dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_72">72dp</dimen>
+
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="toolbar_margin_top">0dp</dimen>
+    <dimen name="toolbar_margin_top_header">14dp</dimen>
+    <dimen name="toolbar_margin_top_header_height">130dp</dimen>
+    <dimen name="article_detail_toolbar_height">44dp</dimen>
+    <dimen name="ques_toolbar_height">50dp</dimen>
+    <dimen name="ques_ans_margin_top">0dp</dimen>
+
+    <dimen name="default_corner_radius">4dp</dimen>
+    <dimen name="default_shadow_radius">4dp</dimen>
+    <dimen name="find_card_margin">0dp</dimen>
+    <dimen name="lineSpacing_8dp">0dp</dimen>
+    <dimen name="lineSpacing_7dp">0dp</dimen>
+    <dimen name="lineSpacing_6dp">0dp</dimen>
+    <dimen name="lineSpacing_5dp">0dp</dimen>
+    <dimen name="lineSpacing_4dp">0dp</dimen>
+    <dimen name="lineSpacing_3dp">0dp</dimen>
+
+
+    <dimen name="textSize_23sp">23sp</dimen><!--  文章详情标题 行间距20px  -->
+    <dimen name="textSize_20sp">20sp</dimen><!--  文章详情大标题 行间距16px  -->
+    <dimen name="textSize_17sp">17sp</dimen><!--  文章正文  行间距16px  -->
+    <dimen name="textSize_15sp">15sp</dimen><!--  二级副标题，展开收起文字 行间距16  -->
+    <dimen name="textSize_14sp">14sp</dimen><!--  二级副标题，展开收起文字 行间距16  -->
+    <dimen name="textSize_12sp">12sp</dimen><!--  图标/来源/评论数/提问数/时间  -->
+    <dimen name="textSize_11sp">11sp</dimen><!--  广告/标签名称  -->
+    <dimen name="padding_middle">15dp</dimen>
+    <dimen name="dp_75">75dp</dimen>
+
+
+    <dimen name="round_10dp">10dp</dimen>
+
+    <dimen name="button_margin">25dp</dimen>
+</resources>

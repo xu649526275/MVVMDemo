@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MvvMDemo</string>
+
+
+    <string name="about_desc"><![CDATA[
+    <h2>网站内容</h2>
+        <p>\t\t\t\t感谢鸿洋大神提供的WanAndroid API</p>
+        <p>\t\t\t\t感谢Gank的API接口</p>
+        <p>\t\t\t\t框架RxJava+Retroft+MVVM+组件化，基于谷歌最新AAC架构,结合了Databinding和生命周期组件liveData的使用，更好的防止内存泄漏
+        </p>
+        <p>\t\t\t\t组件化基于CC框架实现组件化，业界首个支持渐进式组件化改造的Android组件化开源框架，支持跨进程调用。</p>
+    <h2>关于App</h2>
+	    <p>\t\t\t\t本Demo纯属个人练手项目，主要学习mvvm框架和组件化思想。</p>
+    ]]></string>
+</resources>

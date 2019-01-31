@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">arms</string>
+
+    <!-- refresh start -->
+    <string name="srl_header_pulling">Pull Down To Refresh</string>
+    <string name="srl_header_release">Release To Refresh</string>
+    <string name="srl_header_refreshing">Wait For Loading…</string>
+    <string name="srl_header_loading">Loading…</string>
+    <string name="srl_header_finish">Refresh Success</string>
+    <string name="srl_header_failed">Refresh Failed</string>
+    <string name="srl_header_update">\'Last Update\' M-d HH:mm</string>
+    <string name="srl_header_secondary">Release To Second Floor</string>
+
+    <string name="srl_footer_pulling">Pull Up To Load More</string>
+    <string name="srl_footer_release">Release To Load More</string>
+    <string name="srl_footer_loading">Loading…</string>
+    <string name="srl_footer_refreshing">Wait For Refreshing…</string>
+    <string name="srl_footer_finish">Load Success</string>
+    <string name="srl_footer_failed">Load Failed</string>
+    <string name="srl_footer_nothing">No More Data</string>
+
+    <string name="srl_content_empty">The content view in SmartRefreshLayout is empty. Do you forget to add it in xml layout file?</string>
+    <string name="srl_component_falsify" formatted="false">%s falsify area,\n Represents the height[%.1fdp] of drag at run time,\n It does not show anything.</string>
+
+    <!-- ============================= refresh end =================================-->
+    <!-- ============================= refresh header start =================================-->
+    <string name="fgh_mask_top_pull">Pull To Break Out!</string>
+    <string name="fgh_mask_top_release">Release To Break Out!</string>
+    <string name="fgh_mask_bottom">Scroll to move handle</string>
+
+    <string name="fgh_text_game_over">Game Over</string>
+    <string name="fgh_text_loading">Refreshingâ€¦</string>
+    <string name="fgh_text_loading_finish">Refreshing Finished</string>
+    <string name="fgh_text_loading_failed">Refreshing Failed</string>
+
+    <!-- ============================= refresh header end =================================-->
+
+    <!-- baseadapter start -->
+    <string name="brvah_loading">正在加载中...</string>
+    <string name="brvah_load_failed">加载失败，请点我重试</string>
+    <string name="brvah_load_end">没有更多数据</string>
+    <!-- baseadapter end -->
+
+</resources>

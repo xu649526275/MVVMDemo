@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mvvm.viewmodel.HomeViewModel"/>
+
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/color_ffffff"
+        android:layout_height="match_parent">
+
+        <TextView android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="首页"
+            android:visibility="visible"
+            android:gravity="center"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/color_ffffff"
+            android:id="@+id/title"
+            android:padding="10dp"
+            android:onClick="test"
+            android:background="@color/color_1a79ff"
+            />
+
+        <com.arms.mvvm.view.refresh.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/sRefresh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            >
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rlList"
+                />
+        </com.arms.mvvm.view.refresh.SmartRefreshLayout>
+
+        <include  android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            layout="@layout/view_loading"
+            app:loadingView="@{viewModel}"
+            />
+    </android.support.constraint.ConstraintLayout>
+</layout>

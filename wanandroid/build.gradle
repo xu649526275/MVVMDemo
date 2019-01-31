@@ -1,0 +1,80 @@
+//第一步
+apply from: rootProject.file('cc-settings-app.gradle')
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        //第二步
+        if (project.ext.runAsApp) {
+            applicationId "com.zhy.wanandroid"
+            // dex突破65535的限制
+            multiDexEnabled true
+        }
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    //处理所有报META-INF/*'的错误
+    packagingOptions {
+        pickFirst 'META-INF/*'
+    }
+
+    lintOptions {
+        //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉
+        checkReleaseBuilds false
+        abortOnError false
+        //关闭对ResourceType检查
+        disable "ResourceType"
+    }
+
+    //第三步
+    resourcePrefix "wan_"
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //第四步
+    if (project.ext.runAsApp) {
+        afterEvaluate {
+            tasks.matching {
+                it.name.startsWith('dex')
+            }.each { dx ->
+                if (dx.additionalParameters == null) {
+                    dx.additionalParameters = []
+                }
+                dx.additionalParameters += '--multi-dex' // enable multidex
+
+                // optional
+                // dx.additionalParameters += "--main-dex-list=$projectDir/<filename>".toString() // enable the main-dex-list
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(":arms")
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+
+}
