@@ -8,8 +8,10 @@ cc框架也是可能是目前业界唯一支持渐进式改造的组件化框架
 
 效果：主模块
 ![image](https://github.com/xu649526275/MVVMDemo/blob/master/gif/mygif1.gif)
+
 组件化模块
-![image](https://github.com/xu649526275/MVVMDemo/blob/master/gif/mygif1.gif)
+
+![image](https://github.com/xu649526275/MVVMDemo/blob/master/gif/mygif2.gif)
 
 
 
